@@ -2,9 +2,80 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Staj ve İş İlanı Panosu</title>
+  <script src="form.js" defer></script>
 </head>
 <body>
-  <h1>Staj ve İş İlanı Panosu</h1>
+  <header>
+    <h1>Staj ve İş İlanı Panosu</h1>
+    <nav aria-label="Ana gezinme">
+      <a href="#ilanlar-bolumu">İlanlar</a>
+      <a href="#basvuru-bolumu">Başvuru</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="ilanlar-bolumu">
+      <h2>Açık İlanlar</h2>
+      <p id="durum" role="status"></p>
+      <ul id="ilanlar"></ul>
+    </section>
+
+    <section id="basvuru-bolumu">
+      <h2>Başvuru Formu</h2>
+      <form id="basvuru">
+        <div>
+          <label for="ad-soyad">Ad soyad</label>
+          <input type="text" id="ad-soyad" name="adSoyad" required>
+        </div>
+
+        <div>
+          <label for="eposta">E-posta</label>
+          <input type="email" id="eposta" name="eposta" required>
+        </div>
+
+        <div>
+          <label for="telefon">Cep telefonu</label>
+          <input
+            type="tel"
+            id="telefon"
+            name="telefon"
+            required
+            pattern="05[0-9]{9}"
+            title="05 ile başlayan 11 rakam giriniz (örnek: 05321234567)"
+          >
+        </div>
+
+        <div>
+          <label for="baglanti">GitHub ya da CV bağlantınız</label>
+          <input type="url" id="baglanti" name="baglanti" required>
+        </div>
+
+        <div>
+          <label for="ilgi-alani">İlgilendiğiniz alan</label>
+          <select id="ilgi-alani" name="ilgiAlani" required>
+            <option value="">Seçiniz</option>
+            <option value="on-yuz">Ön yüz</option>
+            <option value="arka-uc">Arka uç</option>
+            <option value="veri">Veri</option>
+            <option value="sistem">Sistem</option>
+          </select>
+        </div>
+
+        <div>
+          <input type="checkbox" id="onay" name="onay" required>
+          <label for="onay">Bilgilerimin bu başvuru için kullanılmasını kabul ediyorum.</label>
+        </div>
+
+        <button type="submit">Başvuruyu Gönder</button>
+      </form>
+      <p id="basvuru-ileti" role="status"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Yusuf Emre Kurtuluş · 2026</p>
+  </footer>
 </body>
 </html>
